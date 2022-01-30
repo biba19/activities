@@ -1,0 +1,35 @@
+<div class="main">
+    <div class="header">
+        <button (click)="filter('DRIVING')">CONDUITE</button>
+        <button (click)="filter('WORK')">TRAVAIL</button>
+        <button (click)="filter('AVAILABILITY')">MAD</button>
+        <button (click)="filter('REST')">REPOS</button>
+        <button (click)="filter('OTHER')">AUTRE</button>
+        <button (click)="resetFilter()">Désactiver le filter</button>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr></tr>
+                <tr>
+                    <th>Date de début</th>
+                    <th>Date de fin</th>
+                    <th>Activité</th>
+                    <th>Véhicule VIN</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let activity of filtredActivities">
+                    <td>{{activity.startDate | date: 'YYYY-MM-dd hh:mm'}}</td>
+                    <td>{{activity.endDate | date: 'YYYY-MM-dd hh:mm'}}</td>
+                    <td>{{activity.activity}}</td>
+                    <td>{{activity.vehicleVIN}}</td>
+                    <td><button disabled>edit</button></td>
+                    <td><button disabled>delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
